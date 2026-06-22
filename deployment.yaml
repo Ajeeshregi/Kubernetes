@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dp-ajeeshregi
+  namespace: ajeeshregi
+  annotations:
+    kubernetes.io/change-cause: "Third revision "
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: c1
+        image: nginx:perl
+      - name: c2
+        image: redis
+      - name: c3
+        image: python
